@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 1.3rem;
+        }
+
+        #cel,
+        #fah {
+            margin: auto;
+
+            padding: 3% 25%;
+
+        }
+
+        @media screen and (max-width:670px) {
+
+            #cel,
+            #fah {
+                padding: 2% 17%;
+            }
+        }
+
+        @media screen and (max-width:1200px) {
+
+            .first {
+                margin-bottom: 30px
+            }
+
+        }
+
+        @media screen and (max-width:500px) {
+
+            #cel,
+            #fah {
+                padding: 2% 8%;
+                margin-bottom: 50px;
+            }
+
+            .first {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark text-light">
+            <div class="col">
+                <h1 class="xl-h4 text-center">Tempreture Converter</h1>
+            </div>
+
+        </div>
+        <div class="row bg-warning vh-100 align-content-center justify-content-evenly">
+            <div class="col-xl-4  first">
+                <input type="number" class="bg-danger text-center text-light    card" name="" id="cel" value="0">
+            </div>
+            <div class="col-xl-4 ">
+                <input type="number" class="bg-danger text-center text-light    card" name="" id="fah" value="0">
+            </div>
+        </div>
+    </div>
+    <script>
+        // select cel and fah
+        let cel = document.getElementById("cel");
+        let feh = document.getElementById("fah");
+        
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4);
+
+            }
+            fah.value = f;
+        })
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+             if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+             }
+cel.value=c;
+        })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
